@@ -6,8 +6,6 @@
 //! separation markers, like the dash and the underscore, with a `word` being
 //! defined as a lexicographical atomic component of the identifier.
 
-extern crate cases_macro;
-
 mod cases;
 mod custom;
 
