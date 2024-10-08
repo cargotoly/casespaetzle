@@ -10,7 +10,7 @@ This crate implements a utility trait that converts any string to a case. The ca
 | CamelCase | `helloWorld` | Concatenation of lowercase words with the first letter capitalized. The first letter of the identifier is not capitalized.
 | PascalCase | `HelloWorld` | Concatenation of lowercase words with the first letter capitalized.
 | SnakeCase | `hello_world` | Lowercase join with underscore of split case.
-| ConstantCase | `HELLO_WORLD` | Lowercase join with underscore of split case.
+| ConstantCase | `HELLO_WORLD` | Uppercase join with underscore of split case.
 
 Camel and pascal case abbreviations may be converted unintuitively into the cases, like `OCaml` converting to `o-caml` and `OCaml` in dash and pascal case, but `Ocaml` converts to `ocaml`. In camel case, the first one converts to `oCaml`.
 

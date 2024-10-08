@@ -2,7 +2,7 @@
 name = "casespaetzle"
 description = "This package introduces common identifier case traits and a macro for case trait generation."
 authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license-file = "../LICENSE"
 
