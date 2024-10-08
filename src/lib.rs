@@ -6,6 +6,8 @@
 //! separation markers, like the dash and the underscore, with a `word` being
 //! defined as a lexicographical atomic component of the identifier.
 
+#![deny(rust_2018_idioms)]
+
 mod cases;
 mod custom;
 
