@@ -12,4 +12,4 @@ readme = "README.md"
 keywords = ["util", "string"]
 
 [dependencies]
-casespaetzle-macro = { path="../casespaetzle-macro", version = "0.1.0" }
+casespaetzle-macro = { path="../casespaetzle-macro", version = "0.1.1" }
