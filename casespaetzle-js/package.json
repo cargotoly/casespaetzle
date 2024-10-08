@@ -1,6 +1,6 @@
 {
   "name": "casespaetzle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -15,5 +15,5 @@
   ],
   "author": "Anatoly Weinstein",
   "license": "Apache-2.0",
-  "description": ""
+  "description": "This package extends the string prototype with case conversion methods."
 }
