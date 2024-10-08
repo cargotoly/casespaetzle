@@ -2,6 +2,14 @@
 name = "casespaetzle-macro"
 version = "0.1.0"
 edition = "2021"
+description = "This package introduces a procedural macro for the crate 'casespaetzle'"
+authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
+license = "MIT OR Apache-2.0"
+
+homepage = "https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle-macro" # TODO redirect to cargo documentation
+repository = "https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle-macro"
+readme = "README.md"
+keywords = ["util", "string"]
 
 [lib]
 proc-macro = true
