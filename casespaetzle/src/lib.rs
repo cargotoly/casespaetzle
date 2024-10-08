@@ -50,6 +50,7 @@ mod tests {
     fn camel_case() {
         assert_eq!("HelloWorld".to_camel_case(), "helloWorld");
         assert_eq!("HTTPRequest".to_camel_case(), "httpRequest");
+        assert_eq!("OCaml".to_camel_case(), "oCaml");
     }
 
     #[test]
@@ -60,6 +61,7 @@ mod tests {
     #[test]
     fn flat_case() {
         assert_eq!("HelloWorld".to_flat_case(), "helloworld");
+
         assert!("flatcase".is_strict_flat_case());
         assert!(!"PascalCase".is_strict_flat_case());
     }
@@ -74,6 +76,8 @@ mod tests {
         assert_eq!("HelloWorld".to_pascal_case(), "HelloWorld");
         assert_eq!("HTTPRequest".to_pascal_case(), "HttpRequest");
         assert_eq!("HTTP-Request".to_pascal_case(), "HttpRequest");
+        assert_eq!("oCaml".to_pascal_case(), "OCaml");
+
         assert!("PascalCase".is_strict_pascal_case());
     }
 
