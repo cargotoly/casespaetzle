@@ -132,6 +132,18 @@ pub fn add_case(item: TokenStream) -> TokenStream {
 
         #[cfg(target_arch = "wasm32")]
         #[wasm_bindgen]
+        #docs
+        #[doc=""]
+        #[doc=" @example"]
+        #[doc=" "]
+        #[doc=" ```js"]
+        #[doc=" import 'casespaetzle'"]
+        #[doc=" "]
+        #[doc=" console.log(\"Hello World\".toCamelCase()) // helloWorld"]
+        #[doc=" console.log(\"Hello-World\".toPascalCase()) // HelloWorld"]
+        #[doc=" console.log(\"Hello-wOrld\".toConstantCase()) // HELLO_WORLD"]
+        #[doc=" ```"]
+        #[doc=" "]
         pub fn #ident_js(value: String) -> String {
             value.#ident_to()
         }
