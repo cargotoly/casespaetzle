@@ -10,7 +10,4 @@ assert.strictEqual('http request'.to_pascal_case(), 'HttpRequest')
 console.log('http request'.to_pascal_case())
 ```
 
-### 
-
-### Contributing
-
+If you want to contribute, refer to the [casespaetzle](https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle) module.
