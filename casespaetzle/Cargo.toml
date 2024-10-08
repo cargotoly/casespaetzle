@@ -2,7 +2,7 @@
 name = "casespaetzle"
 description = "This package introduces common identifier case traits and a macro for case trait generation."
 authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "Apache-2.0"
 
@@ -12,4 +12,8 @@ readme = "README.md"
 keywords = ["util", "string", "cases"]
 
 [dependencies]
-casespaetzle-macro = { path="../casespaetzle-macro", version = "0.1.1" }
+casespaetzle-macro = { path="../casespaetzle-macro", version = "0.1.2" }
+wasm-bindgen = "0.2" # [target.'wasm32'.dependencies]
+
+[lib]
+crate-type = ["cdylib", "rlib"] # this is here for wasm

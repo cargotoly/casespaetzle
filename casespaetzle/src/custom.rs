@@ -1,5 +1,8 @@
 use crate::{add_case, SplitCase};
 
+#[cfg(target_arch = "wasm32")]
+use wasm_bindgen::prelude::*;
+
 add_case! {
     /// The flat case (`flatcase`) conversion concatenates the
     /// words of an identifier into lowercase letters without

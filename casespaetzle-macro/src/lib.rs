@@ -65,19 +65,21 @@ fn snake_to_pascal<T: AsRef<str>>(v: T) -> String {
 pub fn add_case(item: TokenStream) -> TokenStream {
     let mut input = parse_macro_input!(item as ItemFn);
 
+    let ident = input.sig.ident;
+
     // The trait name will be in pascal case.
-    let trait_name = format_ident!("{}", snake_to_pascal(input.sig.ident.to_string()));
+    let trait_name = format_ident!("{}", snake_to_pascal(ident.to_string()));
 
     // The string-like trait name should be human readable though.
     // TODO consider an algorithm that trims and removes consecutive underscores.
-    let trait_name_str = input.sig.ident.to_string().replace("_", " ").to_string();
+    let trait_name_str = ident.to_string().replace("_", " ").to_string();
 
     // The conversion method name follows the prefix `to_`
-    let convert_method_name = format_ident!("to_{}", input.sig.ident);
+    let convert_method_name = format_ident!("to_{}", ident);
     let convert_method_name_str = format!("`{convert_method_name}`");
 
     // The verification method name follows the prefix `is_strict_`
-    let check_method_name = format_ident!("is_strict_{}", input.sig.ident);
+    let check_method_name = format_ident!("is_strict_{}", ident);
     let check_method_name_str = format!("`{check_method_name}`");
 
     input.sig.ident = convert_method_name.clone();
@@ -133,6 +135,12 @@ pub fn add_case(item: TokenStream) -> TokenStream {
         }
 
         impl<T: SplitCase> #trait_name for T {}
+
+        #[cfg(target_arch = "wasm32")]
+        #[wasm_bindgen]
+        pub fn #convert_method_name(value: String) -> String {
+            value.#convert_method_name()
+        }
     }
     .into()
 }

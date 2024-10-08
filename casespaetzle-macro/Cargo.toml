@@ -1,6 +1,6 @@
 [package]
 name = "casespaetzle-macro"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "This package introduces a procedural macro for the crate 'casespaetzle'"
 authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
@@ -19,4 +19,3 @@ quote = "1.0"
 paste = "1.0"
 syn = { version = "2.0", features = ["full"] }
 proc-macro2 = "1.0.87"
-
