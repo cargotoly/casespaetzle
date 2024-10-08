@@ -9,7 +9,7 @@ license = "Apache-2.0"
 homepage = "https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle" # TODO redirect to cargo documentation
 repository = "https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle"
 readme = "README.md"
-keywords = ["util", "string"]
+keywords = ["util", "string", "cases"]
 
 [dependencies]
 casespaetzle-macro = { path="../casespaetzle-macro", version = "0.1.1" }
