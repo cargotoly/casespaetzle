@@ -36,7 +36,6 @@ fn snake_to_pascal<T: AsRef<str>>(v: T) -> String {
 /// ### Usage
 ///
 /// ```rs
-/// use paste::paste; // Dependency
 /// use util_cases::{SplitCase, add_case};
 ///
 /// add_case! {
