@@ -50,8 +50,8 @@ add_case! {
             out
         };
 
-        (&self.to_split_case())
-            .into_iter()
+        self.to_split_case()
+            .iter()
             .map(capitalize)
             .collect::<Vec<String>>()
             .join("")
@@ -72,8 +72,8 @@ add_case! {
             out
         };
 
-        let mut s = (&self.to_split_case())
-            .into_iter()
+        let mut s = self.to_split_case()
+            .iter()
             .map(capitalize)
             .collect::<Vec<String>>()
             .join("");

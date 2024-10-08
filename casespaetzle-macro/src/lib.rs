@@ -70,7 +70,7 @@ pub fn add_case(item: TokenStream) -> TokenStream {
 
     // The string-like trait name should be human readable though.
     // TODO consider an algorithm that trims and removes consecutive underscores.
-    let trait_name_str = format!("{}", input.sig.ident.to_string().replace("_", " "));
+    let trait_name_str = input.sig.ident.to_string().replace("_", " ").to_string();
 
     // The conversion method name follows the prefix `to_`
     let convert_method_name = format_ident!("to_{}", input.sig.ident);
@@ -85,10 +85,7 @@ pub fn add_case(item: TokenStream) -> TokenStream {
     let docs = input
         .attrs
         .iter()
-        .filter(|attr| match &attr.meta {
-            Meta::NameValue(mnv) if mnv.path.is_ident("doc") => true,
-            _ => false,
-        })
+        .filter(|attr| matches!(&attr.meta, Meta::NameValue(mnv) if mnv.path.is_ident("doc")))
         .map(|attr| quote!(#attr))
         .fold(proc_macro2::TokenStream::new(), |mut acc, f| {
             acc.extend(f);

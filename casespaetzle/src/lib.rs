@@ -16,7 +16,7 @@ pub use casespaetzle_macro::add_case;
 pub use custom::*;
 
 /// Contains the characters that case insensitive separate identifier words.
-pub const SEPARATION_CHARACTERS: &str = &"-_~,. ";
+pub const SEPARATION_CHARACTERS: &str = "-_~,. ";
 
 #[cfg(test)]
 mod tests {

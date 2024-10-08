@@ -48,7 +48,7 @@ impl<T: AsRef<str>> SplitCase for T {
                 const DEFAULT: char = '?';
 
                 let previous_letter = buffer.chars().last().unwrap_or(DEFAULT);
-                let next_letter = element.chars().skip(idx + 1).next().unwrap_or(DEFAULT);
+                let next_letter = element.chars().nth(idx + 1).unwrap_or(DEFAULT);
 
                 match c {
                     // If we're an uppercase letter and the next letter is lowercase, we start
@@ -79,12 +79,12 @@ impl<T: AsRef<str>> SplitCase for T {
                 }
             }
 
-            if buffer.len() != 0 {
+            if !buffer.is_empty() {
                 vec.push(buffer);
             }
         }
 
-        vec.into_iter().filter(|s| s.len() != 0).collect()
+        vec.into_iter().filter(|s| !s.is_empty()).collect()
     }
 }
 
