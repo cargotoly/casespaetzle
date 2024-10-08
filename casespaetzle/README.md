@@ -14,7 +14,7 @@ This crate implements a utility trait that converts any string to a case. The ca
 
 Camel and pascal case abbreviations may be converted unintuitively into the cases, like `OCaml` converting to `o-caml` and `OCaml` in dash and pascal case, but `Ocaml` converts to `ocaml`. In camel case, the first one converts to `oCaml`.
 
-This package re-exports the macro `add_case`, for its' documentation, refer [to the crate][casespaetzle](https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle) on github.
+This package re-exports the macro `add_case`, for its' documentation, refer [to the crate](https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle-macro) on github.
 
 ### Open for Contribution
 
