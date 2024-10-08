@@ -36,7 +36,7 @@ fn snake_to_pascal<T: AsRef<str>>(v: T) -> String {
 /// ### Usage
 ///
 /// ```rs
-/// use util_cases::{SplitCase, add_case};
+/// use casespaetzle::{SplitCase, add_case};
 ///
 /// add_case! {
 ///     /// The joke case (`jOkE cAsE`) conversion documentation.
@@ -106,7 +106,7 @@ pub fn add_case(item: TokenStream) -> TokenStream {
             /// according to the definition of the case construction.
             ///
             /// ```rs
-            /// use util_cases::*;
+            /// use casespaetzle::*;
             ///
             /// assert_eq!("Hello World".to_camel_case(), "helloWorld");
             /// assert_eq!("Hello-World".to_pascal_case(), "HelloWorld");
@@ -124,7 +124,7 @@ pub fn add_case(item: TokenStream) -> TokenStream {
             /// matches case sensitive on the identifier.
             ///
             /// ```rs
-            /// use util_cases::*;
+            /// use casespaetzle::*;
             ///
             /// assert!("helloWorld".is_strict_camel_case());
             /// assert!("HttpRequest".is_strict_pascal_case());

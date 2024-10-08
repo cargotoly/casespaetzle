@@ -3,7 +3,7 @@
 This module is used by the [casespaetzle](https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle) crate. This module only exports the macro `add_case!()`. In this macro you provide a function which constructs a trait for a specific case variant. The trait name is in pascal case, while the provided function has to be in strict snake case.
 
 ```rs
-use util_cases::{SplitCase, add_case};
+use casespaetzle::{SplitCase, add_case};
 
 add_case! {
     /// The joke case (`jOkE cAsE`) conversion documentation.
