@@ -12,7 +12,7 @@ mod cases;
 mod custom;
 
 pub use cases::CaseStyles;
-pub use cases_macro::add_case;
+pub use casespaetzle_macro::add_case;
 pub use custom::*;
 
 /// Contains the characters that case insensitive separate identifier words.
