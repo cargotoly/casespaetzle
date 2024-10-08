@@ -38,7 +38,7 @@ fn snake_to_pascal<T: AsRef<str>>(v: T) -> String {
 /// ```rs
 /// use paste::paste; // Dependency
 /// use util_cases::{CaseStyles, add_case};
-/// 
+///
 /// add_case! {
 ///     /// The joke case (`jOkE cAsE`) conversion documentation.
 ///     fn joke_case(&self) -> String {
@@ -57,9 +57,9 @@ fn snake_to_pascal<T: AsRef<str>>(v: T) -> String {
 ///             .join(" ")
 ///     }
 /// }
-/// 
+///
 /// pub use JokeCase;
-/// 
+///
 /// assert_eq!("Hello World".to_joke_case(), "hElLo wOrLd");
 /// ```
 #[proc_macro]
@@ -80,18 +80,21 @@ pub fn add_case(item: TokenStream) -> TokenStream {
     // The verification method name follows the prefix `is_strict_`
     let check_method_name = format_ident!("is_strict_{}", input.sig.ident);
     let check_method_name_str = format!("`{check_method_name}`");
-    
+
     input.sig.ident = convert_method_name.clone();
 
-    let docs = input.attrs.iter().filter(|attr| {
-        match &attr.meta {
+    let docs = input
+        .attrs
+        .iter()
+        .filter(|attr| match &attr.meta {
             Meta::NameValue(mnv) if mnv.path.is_ident("doc") => true,
             _ => false,
-        }
-    }).map(|attr| quote!(#attr)).fold(proc_macro2::TokenStream::new(), |mut acc, f| {
-        acc.extend(f);
-        acc
-    });
+        })
+        .map(|attr| quote!(#attr))
+        .fold(proc_macro2::TokenStream::new(), |mut acc, f| {
+            acc.extend(f);
+            acc
+        });
 
     quote! {
         pub trait #trait_name : CaseStyles {
@@ -102,17 +105,17 @@ pub fn add_case(item: TokenStream) -> TokenStream {
             /// will return a string in
             #[doc = #trait_name_str]
             /// according to the definition of the case construction.
-            /// 
+            ///
             /// ```rs
             /// use util_cases::*;
-            /// 
+            ///
             /// assert_eq!("Hello World".to_camel_case(), "helloWorld");
             /// assert_eq!("Hello-World".to_pascal_case(), "HelloWorld");
             /// ```
             #input
 
             #docs
-            /// 
+            ///
             /// The method
             #[doc = #check_method_name_str]
             /// will return true for every identifier in
@@ -120,10 +123,10 @@ pub fn add_case(item: TokenStream) -> TokenStream {
             /// , if the construction function
             #[doc = #convert_method_name_str]
             /// matches case sensitive on the identifier.
-            /// 
+            ///
             /// ```rs
             /// use util_cases::*;
-            /// 
+            ///
             /// assert!("helloWorld".is_strict_camel_case());
             /// assert!("HttpRequest".is_strict_pascal_case());
             /// assert!(!"hello world".is_strict_flat_case());
