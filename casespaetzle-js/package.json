@@ -1,0 +1,21 @@
+{
+  "name": "casespaetzle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "(cd ../casespaetzle; wasm-pack build --out-dir ../casespaetzle-js/pkg --target nodejs) && node build.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "string",
+    "cases",
+    "util"
+  ],
+  "author": "Anatoly Weinstein",
+  "license": "Apache-2.0",
+  "description": "",
+  "devDependencies": {
+    "tsx": "^4.19.1"
+  }
+}
