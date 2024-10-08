@@ -4,7 +4,6 @@ description = "This package introduces common identifier case traits and a macro
 authors = ["Anatoly Weinstein <anatoly.wein@gmail.com>"]
 version = "0.1.0"
 edition = "2021"
-license = "MIT OR Apache-2.0"
 
 homepage = "https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle" # TODO redirect to cargo documentation
 repository = "https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle"

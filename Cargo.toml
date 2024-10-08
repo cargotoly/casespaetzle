@@ -1,3 +1,4 @@
 [workspace]
 resolver = "2"
 members = ["casespaetzle", "casespaetzle-macro"]
+license = "MIT OR Apache-2.0"
