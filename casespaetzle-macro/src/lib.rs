@@ -37,7 +37,7 @@ fn snake_to_pascal<T: AsRef<str>>(v: T) -> String {
 ///
 /// ```rs
 /// use paste::paste; // Dependency
-/// use util_cases::{CaseStyles, add_case};
+/// use util_cases::{SplitCase, add_case};
 ///
 /// add_case! {
 ///     /// The joke case (`jOkE cAsE`) conversion documentation.
@@ -97,7 +97,7 @@ pub fn add_case(item: TokenStream) -> TokenStream {
         });
 
     quote! {
-        pub trait #trait_name : CaseStyles {
+        pub trait #trait_name : SplitCase {
             #docs
             ///
             /// The method
@@ -136,7 +136,7 @@ pub fn add_case(item: TokenStream) -> TokenStream {
             }
         }
 
-        impl<T: CaseStyles> #trait_name for T {}
+        impl<T: SplitCase> #trait_name for T {}
     }
     .into()
 }

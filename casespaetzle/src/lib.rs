@@ -11,7 +11,7 @@
 mod cases;
 mod custom;
 
-pub use cases::CaseStyles;
+pub use cases::SplitCase;
 pub use casespaetzle_macro::add_case;
 pub use custom::*;
 

@@ -1,4 +1,4 @@
-use crate::{add_case, CaseStyles};
+use crate::{add_case, SplitCase};
 
 add_case! {
     /// The flat case (`flatcase`) conversion concatenates the

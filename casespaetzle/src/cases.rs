@@ -5,16 +5,16 @@ use crate::SEPARATION_CHARACTERS;
 
 /// Defines methods to convert an identifier into various case styles
 /// based on the implemented word splitter method.
-pub trait CaseStyles {
+pub trait SplitCase {
     /// Splits an identifier into atomic words. A word can be either uppercase (`ABC`)
     /// capitalized (`Abc`), or lowercase (`abc`). This method will panic if it has to
     /// work with case insensitive characters other than a few separation markers.
     fn to_split_case(&self) -> Vec<String>;
 }
 
-/// Implements for `CaseStyles` for the [common trait](https://www.reddit.com/r/rust/comments/zfgo1f/common_trait_for_str_string_string_arcstring/)
+/// Implements for `SplitCase` for the [common trait](https://www.reddit.com/r/rust/comments/zfgo1f/common_trait_for_str_string_string_arcstring/)
 /// which all string types share.
-impl<T: AsRef<str>> CaseStyles for T {
+impl<T: AsRef<str>> SplitCase for T {
     fn to_split_case(&self) -> Vec<String> {
         let identifier = self.as_ref().to_string();
         let separation = identifier
@@ -88,4 +88,4 @@ impl<T: AsRef<str>> CaseStyles for T {
     }
 }
 
-// TODO: implement (split case should return self): impl<'a, T: AsRef<&'a str>, U: Iter<T>> CaseStyles for U
+// TODO: implement (split case should return self): impl<'a, T: AsRef<&'a str>, U: Iter<T>> SplitCase for U
