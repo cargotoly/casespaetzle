@@ -1,4 +1,4 @@
 [workspace]
 resolver = "2"
 members = ["casespaetzle", "casespaetzle-macro"]
-license-file = "LICENSE"
+license = "Apache-2.0"
