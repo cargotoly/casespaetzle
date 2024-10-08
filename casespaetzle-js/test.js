@@ -3,6 +3,6 @@ import assert from 'node:assert'
 import './index.js'
 
 test('case conversions', (t) => {
-    assert.strictEqual('hello world'.to_constant_case(), 'HELLO_WORLD');
-    assert.strictEqual('hello world'.to_camel_case(), 'helloWorld');
+    assert.strictEqual('hello world'.toConstantCase(), 'HELLO_WORLD');
+    assert.strictEqual('hello world'.toCamelCase(), 'helloWorld');
 });

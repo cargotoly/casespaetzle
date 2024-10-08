@@ -65,24 +65,18 @@ fn snake_to_pascal<T: AsRef<str>>(v: T) -> String {
 pub fn add_case(item: TokenStream) -> TokenStream {
     let mut input = parse_macro_input!(item as ItemFn);
 
-    let ident = input.sig.ident;
-
-    // The trait name will be in pascal case.
-    let trait_name = format_ident!("{}", snake_to_pascal(ident.to_string()));
-
-    // The string-like trait name should be human readable though.
+    let ident = input.sig.ident; // func_name
+    let ident_pascal = format_ident!("{}", snake_to_pascal(ident.to_string())); // TraitName
+    let ident_js = format_ident!("to{}", ident_pascal.to_string()); // toTraitName
+    let ident_to = format_ident!("to_{}", ident.to_string()); // to_trait_name
+    let ident_to_str = format!("{ident_to}"); // to_trait_name
+    let ident_is_strict = format_ident!("is_strict_{}", ident.to_string()); // to_trait_name
+    let ident_is_strict_str = format!("{ident_is_strict}"); // to_trait_name
     // TODO consider an algorithm that trims and removes consecutive underscores.
-    let trait_name_str = ident.to_string().replace("_", " ").to_string();
+    let trait_name_human = ident.to_string().replace("_", " ").to_string(); // trait name
 
-    // The conversion method name follows the prefix `to_`
-    let convert_method_name = format_ident!("to_{}", ident);
-    let convert_method_name_str = format!("`{convert_method_name}`");
-
-    // The verification method name follows the prefix `is_strict_`
-    let check_method_name = format_ident!("is_strict_{}", ident);
-    let check_method_name_str = format!("`{check_method_name}`");
-
-    input.sig.ident = convert_method_name.clone();
+    // The output function is prefixed with `to_`
+    input.sig.ident = ident_to.clone();
 
     let docs = input
         .attrs
@@ -95,13 +89,13 @@ pub fn add_case(item: TokenStream) -> TokenStream {
         });
 
     quote! {
-        pub trait #trait_name : SplitCase {
+        pub trait #ident_pascal : SplitCase {
             #docs
             ///
             /// The method
-            #[doc = #convert_method_name_str]
+            #[doc = #ident_to_str]
             /// will return a string in
-            #[doc = #trait_name_str]
+            #[doc = #trait_name_human]
             /// according to the definition of the case construction.
             ///
             /// ```rs
@@ -115,11 +109,11 @@ pub fn add_case(item: TokenStream) -> TokenStream {
             #docs
             ///
             /// The method
-            #[doc = #check_method_name_str]
+            #[doc = #ident_is_strict_str]
             /// will return true for every identifier in
-            #[doc = #trait_name_str]
+            #[doc = #trait_name_human]
             /// , if the construction function
-            #[doc = #convert_method_name_str]
+            #[doc = #ident_to_str]
             /// matches case sensitive on the identifier.
             ///
             /// ```rs
@@ -129,17 +123,17 @@ pub fn add_case(item: TokenStream) -> TokenStream {
             /// assert!("HttpRequest".is_strict_pascal_case());
             /// assert!(!"hello world".is_strict_flat_case());
             /// ```
-            fn #check_method_name (&self) -> bool {
-                &self.to_split_case().join("") == &self.#convert_method_name()
+            fn #ident_is_strict (&self) -> bool {
+                &self.to_split_case().join("") == &self.#ident_to()
             }
         }
 
-        impl<T: SplitCase> #trait_name for T {}
+        impl<T: SplitCase> #ident_pascal for T {}
 
         #[cfg(target_arch = "wasm32")]
         #[wasm_bindgen]
-        pub fn #convert_method_name(value: String) -> String {
-            value.#convert_method_name()
+        pub fn #ident_js(value: String) -> String {
+            value.#ident_to()
         }
     }
     .into()
