@@ -1,6 +1,6 @@
 # Casespaetzle
 
-Extends the string prototype with case conversion methods, which are written in Rust. For a list of cases, see the [main README](https://github.com/anatoly03/casespaetzle)
+Extends the string prototype with case conversion methods, which are written in Rust. For a list of supported cases, see the [main README](https://github.com/anatoly03/casespaetzle).
 
 ```ts
 import 'casespaetzle'
