@@ -3,6 +3,18 @@ use crate::{add_case, SplitCase};
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::prelude::*;
 
+/// Capitalize the first letter of an identifier.
+pub fn capitalize(mut out: String) -> String {
+    out[0..1].make_ascii_uppercase();
+    out
+}
+
+/// Turn the first letter of an identifier lowercase.
+pub fn decapitalize(mut out: String) -> String {
+    out[0..1].make_ascii_lowercase();
+    out
+}
+
 add_case! {
     /// The flat case (`flatcase`) conversion concatenates the
     /// words of an identifier into lowercase letters without
@@ -47,14 +59,9 @@ add_case! {
     /// An identifier is in pascal case, if the first letter is
     /// in capital case and there are no separation symbols.
     fn pascal_case(&self) -> String {
-        let capitalize = |s: &String| {
-            let mut out = s.to_lowercase().clone();
-            out[0..1].make_ascii_uppercase();
-            out
-        };
-
         self.to_split_case()
             .iter()
+            .map(|s| s.to_lowercase().clone())
             .map(capitalize)
             .collect::<Vec<String>>()
             .join("")
@@ -69,20 +76,14 @@ add_case! {
     /// An identifier is in camel case, if the first letter is
     /// lower case and there are no separation symbols.
     fn camel_case(&self) -> String {
-        let capitalize = |s: &String| {
-            let mut out = s.to_lowercase().clone();
-            out[0..1].make_ascii_uppercase();
-            out
-        };
-
-        let mut s = self.to_split_case()
+        let s = self.to_split_case()
             .iter()
+            .map(|s| s.to_lowercase().clone())
             .map(capitalize)
             .collect::<Vec<String>>()
             .join("");
 
-        s[0..1].make_ascii_lowercase();
-        s
+        decapitalize(s)
     }
 }
 
