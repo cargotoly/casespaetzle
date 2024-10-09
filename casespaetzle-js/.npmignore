@@ -1,5 +1,11 @@
+# Generated
+package-lock.json
+pkg/README.md
+
+# Build, Test Scripts
 build.js
+test.js
+
+# Ignore Files
 */.gitignore
 .npmignore
-package-lock.json
-test.js

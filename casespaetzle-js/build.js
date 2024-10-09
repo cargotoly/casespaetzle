@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync, unlinkSync } from 'fs'
 
 // Generate Type Definition File
 
@@ -27,3 +27,5 @@ ${types}
 // const pkg = JSON.parse(readFileSync('./pkg/package.json'))
 // pkg['type'] = 'module'
 // writeFileSync('./pkg/package.json', JSON.stringify(pkg, null, 2))
+
+unlinkSync('pkg/.gitignore')
