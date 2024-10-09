@@ -7,6 +7,7 @@
 | SplitCase | `["Hello", "World!"]` | Splits the different parts of an identifier into a vector of strings.
 | FlatCase | `helloworld` | Lowercase concatenation. The resulting identifier loses all information on word case and separations.
 | KebabCase | `hello-world` | Lowercase join with dash.
+| HttpHeaderCase | `Hello-World`, `HTTP-Header-Case` | Join with dash. The first letter of every word is capitalized. This case is case sensitive. Uppercase sequences of letters will be preserved.
 | CamelCase | `helloWorld` | Concatenation of lowercase words with the first letter capitalized. The first letter of the identifier is not capitalized.
 | PascalCase | `HelloWorld` | Concatenation of lowercase words with the first letter capitalized.
 | SnakeCase | `hello_world` | Lowercase join with underscore.
@@ -44,6 +45,5 @@ cargo test
 ```
 
 - `TRAIN-CASE`, `COBOL-CASE`
-- `HTTP-Header-Case` a case insensitive version of train case, which keeps uppercase words.
 - `_undercoreNotation` (underscore and camel case)
 - `HTTPRequest` a case insensitive version of camel case, which keeps uppercase words.

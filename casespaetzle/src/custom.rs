@@ -40,6 +40,22 @@ add_case! {
 }
 
 add_case! {
+    /// The http header case (`HTTP-Header-Case`) conversion joins
+    /// the words of an identifier with a dash.
+    ///
+    /// An identifier is in http header case, if it is separated by
+    /// one dash, and the words are either fully capitalized or the
+    /// first letter is capitalized and the rest is not.
+    fn http_header_case(&self) -> String {
+        self.to_split_case()
+            .into_iter()
+            .map(capitalize)
+            .collect::<Vec<String>>()
+            .join("-")
+    }
+}
+
+add_case! {
     /// The snake case (`snake_case`) conversion joins the words
     /// of an identifier with the underscore. The resulting word
     /// is lowercase.

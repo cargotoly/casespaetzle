@@ -72,6 +72,12 @@ mod tests {
     }
 
     #[test]
+    fn http_header_case() {
+        assert_eq!("HTTPHelloWorld".to_http_header_case(), "HTTP-Hello-World");
+        assert_eq!("abcDef".to_http_header_case(), "Abc-Def");
+    }
+
+    #[test]
     fn pascal_case() {
         assert_eq!("HelloWorld".to_pascal_case(), "HelloWorld");
         assert_eq!("HTTPRequest".to_pascal_case(), "HttpRequest");
