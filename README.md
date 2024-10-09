@@ -7,7 +7,7 @@ cargo test
 | Trait | Example | Definition
 |-|-|-|
 | SplitCase | `["Hello", "World!"]` | Splits the different parts of an identifier into a vector of strings.
-| FlatCase | `helloworld` | Lowercase concatenation.
+| FlatCase | `helloworld` | Lowercase concatenation. The resulting identifier loses all information on word case and separations.
 | KebabCase | `hello-world` | Lowercase join with dash.
 | CamelCase | `helloWorld` | Concatenation of lowercase words with the first letter capitalized. The first letter of the identifier is not capitalized.
 | PascalCase | `HelloWorld` | Concatenation of lowercase words with the first letter capitalized.
