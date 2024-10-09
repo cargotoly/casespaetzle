@@ -12,7 +12,7 @@ readme = "README.md"
 keywords = ["util", "string", "cases"]
 
 [dependencies]
-casespaetzle-macro = { path="../casespaetzle-macro", version = "0.1.2" }
+casespaetzle-macro = { path="../casespaetzle-macro", version = "0.1.1" }
 wasm-bindgen = "0.2" # [target.'wasm32'.dependencies]
 
 [lib]
