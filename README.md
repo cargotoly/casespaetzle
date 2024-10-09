@@ -1,8 +1,6 @@
 # Casespaetzle
 
-```
-cargo test
-```
+[NPM](https://npmjs.com/package/casespaetzle) | [Cargo](https://crates.io/crates/casespaetzle)
 
 | Trait | Example | Definition
 |-|-|-|
@@ -40,6 +38,10 @@ There are three different types of cases, that hold a variable amount of informa
 The identifiers `OCaml` and `HTTPRequest` will be intuitively converted in the words `O`, `Caml` and `HTTP`, `Request` respectively. If any case with full or little information preservation is used, the individual words will be preserved, however with little information preservation, the words lose its' case sensivity.
 
 ### Open for Contribution
+
+```
+cargo test
+```
 
 - `TRAIN-CASE`, `COBOL-CASE`
 - `HTTP-Header-Case` a case insensitive version of train case, which keeps uppercase words.
