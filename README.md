@@ -27,7 +27,7 @@ wonderful-HTTPRequestIdentifier-HELLO
 
 To define a case we first define the term 'word', which is an atomic sequence of characters contained within the identifier. A word is any identifier, which cannot be split into smaller words. The split algorithm works with consideration of three rules.
 
-- There is a set of 'separation characters', which split any identifier with highest priority. Currently this set is `-_~,.` and the space character. `a-b → a ; b`
+- There is a set of 'separation characters', which split any identifier with highest priority. These characters will separate words but never be part of one. Currently this set is `-_~,.` and the space character. `a-b → a ; b`
 - A capital letter following a lowercase letter, belongs to the following word. `ABc → A ; Bc`
 - All lowercase letters, must be part of the same word.
 
