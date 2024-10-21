@@ -2,7 +2,7 @@
 
 > **DO NOT USE THIS CRATE DIRECTLY.** Instead, use [casespaetzle](https://crates.io/crates/casespaetzle). This crate only servers as a procedural macro library for its' parent crate and is not meant for direct use. If you would wish to use this crate raw, see below.
 
-This module is used by the [casespaetzle](https://github.com/Anatoly03/casespaetzle/tree/master/casespaetzle) crate. This module only exports the macro `add_case!()`. In this macro you provide a function which constructs a trait for a specific case variant. The trait name is in pascal case, while the provided function has to be in strict snake case.
+This module is used by the [casespaetzle](https://github.com/cargotoly/casespaetzle/tree/master/casespaetzle) crate. This module only exports the macro `add_case!()`. In this macro you provide a function which constructs a trait for a specific case variant. The trait name is in pascal case, while the provided function has to be in strict snake case.
 
 ```rs
 use casespaetzle::{SplitCase, add_case};
